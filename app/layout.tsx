@@ -5,7 +5,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'AutoPost — AI-Powered Facebook Automation',
+  title: 'automations.muhammadhassaankhan.com — Personal Facebook Automation',
   description:
     'Autonomous personal pipeline connecting DeepSeek AI intelligence to the Meta Graph API for scheduled, high-fidelity Facebook Page publishing.',
   keywords: [
@@ -24,21 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="min-h-[100dvh] bg-background font-sans text-foreground antialiased selection:bg-accent/20 selection:text-accent">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange={false}
-        >
-          <div className="relative flex min-h-[100dvh] flex-col">
-            {/* Subtle top ambient radial lighting */}
-            <div
-              className="pointer-events-none fixed inset-x-0 top-0 h-96 bg-gradient-to-b from-indigo-500/[0.04] dark:from-indigo-500/[0.06] to-transparent blur-3xl"
-              aria-hidden="true"
-            />
-
+    <html lang="en" className="dark" style={{ colorScheme: 'dark' }}>
+      <body className="min-h-[100dvh] bg-[#0a0a0a] font-sans text-[#f5f5f5] antialiased selection:bg-lime/20 selection:text-lime">
+        <ThemeProvider>
+          <div className="relative flex min-h-[100dvh] flex-col bg-background">
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { LegalLayout } from '@/components/LegalLayout';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — AutoPost',
+  title: 'Privacy Policy — automations.muhammadhassaankhan.com',
   description: 'Privacy Policy for the personal Facebook automation tool.',
 };
 
@@ -11,7 +11,7 @@ export default function PrivacyPage() {
     <LegalLayout
       title="Privacy Policy"
       lastUpdated="November 6, 2026"
-      badge="Data Privacy Standard"
+      badge="Privacy Notice"
     >
       <h1>Privacy Policy</h1>
       <p>Last updated: November 6, 2026</p>

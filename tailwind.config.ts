@@ -10,22 +10,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: 'var(--bg)',
-        foreground: 'var(--text)',
-        elevated: 'var(--bg-elevated)',
-        muted: {
-          DEFAULT: 'var(--bg-muted)',
-          foreground: 'var(--text-muted)',
+        background: '#0a0a0a',
+        surface: '#121212',
+        card: '#161616',
+        border: '#262626',
+        'border-hover': '#404040',
+        foreground: '#f5f5f5',
+        muted: '#a3a3a3',
+        subtle: '#737373',
+        lime: {
+          DEFAULT: '#d4ff00',
+          hover: '#c1eb00',
+          muted: 'rgba(212, 255, 0, 0.1)',
         },
-        border: 'var(--border)',
-        accent: {
-          DEFAULT: 'var(--accent)',
-          foreground: 'var(--accent-fg)',
-        },
-      },
-      boxShadow: {
-        'card-stacked': 'var(--shadow-card-stacked)',
-        'card-stacked-dark': 'var(--shadow-card-stacked-dark)',
       },
       fontFamily: {
         sans: [
@@ -36,15 +33,13 @@ const config: Config = {
           'Roboto',
           'sans-serif',
         ],
-      },
-      animation: {
-        'pulse-subtle': 'pulseSubtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-      },
-      keyframes: {
-        pulseSubtle: {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.4' },
-        },
+        mono: [
+          'JetBrains Mono',
+          'Fira Code',
+          'Monaco',
+          'Courier New',
+          'monospace',
+        ],
       },
     },
   },

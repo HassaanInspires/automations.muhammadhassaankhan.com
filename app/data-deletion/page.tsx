@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { LegalLayout } from '@/components/LegalLayout';
 
 export const metadata: Metadata = {
-  title: 'User Data Deletion — AutoPost',
+  title: 'User Data Deletion — automations.muhammadhassaankhan.com',
   description: 'User Data Deletion instructions for the personal Facebook automation tool.',
 };
 
@@ -11,7 +11,7 @@ export default function DataDeletionPage() {
     <LegalLayout
       title="User Data Deletion"
       lastUpdated="November 6, 2026"
-      badge="Compliance & Revocation"
+      badge="Compliance"
     >
       <h1>User Data Deletion</h1>
       <p>Last updated: November 6, 2026</p>
