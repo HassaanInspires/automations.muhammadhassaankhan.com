@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
-import { ArrowDown, ArrowRight, Cpu, Lock } from 'lucide-react';
+import { ArrowDown, ArrowRight, Cpu, Lock, ShieldCheck } from 'lucide-react';
 
 export function ParallaxHero() {
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -75,7 +75,7 @@ export function ParallaxHero() {
         <div className="h-[420px] w-[760px] rounded-full bg-blue-500/[0.04] blur-[100px]" />
       </div>
 
-      {/* Distinct Color Accent Badge 1: Emerald (Meta Graph API) */}
+      {/* Harmonic Accent 1: Acid Mint (Meta Graph API) */}
       <motion.div
         style={{
           y: yFloatingBadge1,
@@ -83,7 +83,7 @@ export function ParallaxHero() {
           rotateZ: -2,
           opacity: opacityFade,
         }}
-        className="pointer-events-none absolute left-6 sm:left-14 lg:left-24 top-24 hidden md:flex items-center gap-3 rounded-2xl border border-emerald-200/80 bg-white/90 backdrop-blur-xl px-4 py-2.5 shadow-card-stacked z-20"
+        className="pointer-events-none absolute left-6 sm:left-14 lg:left-24 top-24 hidden md:flex items-center gap-3 rounded-2xl border border-emerald-300/80 bg-white/95 backdrop-blur-xl px-4 py-2.5 shadow-card-stacked z-20"
       >
         <span className="relative flex size-2.5">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
@@ -98,7 +98,7 @@ export function ParallaxHero() {
         </div>
       </motion.div>
 
-      {/* Distinct Color Accent Badge 2: Royal Blue (DeepSeek-V3 Engine) */}
+      {/* Harmonic Accent 2: Ultramarine (DeepSeek-V3 Engine) */}
       <motion.div
         style={{
           y: yFloatingBadge2,
@@ -106,15 +106,15 @@ export function ParallaxHero() {
           rotateZ: 2.5,
           opacity: opacityFade,
         }}
-        className="pointer-events-none absolute right-6 sm:right-14 lg:right-24 top-32 hidden md:flex items-center gap-3 rounded-2xl border border-blue-200/80 bg-white/90 backdrop-blur-xl px-4 py-2.5 shadow-card-stacked z-20"
+        className="pointer-events-none absolute right-6 sm:right-14 lg:right-24 top-32 hidden md:flex items-center gap-3 rounded-2xl border border-blue-200/80 bg-white/95 backdrop-blur-xl px-4 py-2.5 shadow-card-stacked z-20"
       >
-        <div className="flex size-7 items-center justify-center rounded-xl bg-blue-600 text-white shadow-sm">
+        <div className="flex size-7 items-center justify-center rounded-xl bg-[#1848ff] text-white shadow-sm">
           <Cpu className="size-3.5" />
         </div>
         <div className="flex flex-col text-left">
           <div className="flex items-center gap-1.5 font-mono text-[11px] font-bold text-foreground">
             <span>DeepSeek-V3</span>
-            <span className="rounded bg-blue-100 px-1.5 py-0.5 text-[9px] text-blue-700 font-semibold">0.70</span>
+            <span className="rounded bg-blue-100 px-1.5 py-0.5 text-[9px] text-[#1848ff] font-semibold">0.70</span>
           </div>
           <span className="text-[10px] text-muted-foreground font-sans">Clamped AI Synthesis</span>
         </div>
@@ -125,20 +125,20 @@ export function ParallaxHero() {
         style={{ scale: scaleHero }}
         className="mx-auto max-w-5xl px-4 text-center sm:px-6 relative z-10"
       >
-        {/* Eyebrow Pill with Violet Accent */}
+        {/* Eyebrow Pill with Ultramarine & Mint Accents */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-violet-50/70 px-4 py-1.5 text-xs font-medium text-violet-900 backdrop-blur-md shadow-sm"
+          className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/80 px-4 py-1.5 text-xs font-medium text-blue-950 backdrop-blur-md shadow-sm"
         >
-          <span className="size-2 rounded-full bg-violet-600" />
-          <span className="font-semibold text-violet-950">Autonomous Facebook Pipeline</span>
-          <span className="text-violet-300">•</span>
-          <span className="text-violet-800">Muhammad Hassaan Khan</span>
+          <span className="size-2 rounded-full bg-emerald-500" />
+          <span className="font-semibold text-blue-900">Autonomous Facebook Pipeline</span>
+          <span className="text-blue-300">•</span>
+          <span className="text-blue-700">Muhammad Hassaan Khan</span>
         </motion.div>
 
-        {/* Monumental Headline: Crisp Bold Obsidian + Pure Editorial Serif Italic (NO rainbow gradient) */}
+        {/* Monumental Headline: Crisp Bold Obsidian + Pure Ultramarine Editorial Italic */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
           <motion.span
             initial={{ opacity: 0, y: 30 }}
@@ -152,7 +152,7 @@ export function ParallaxHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif italic font-normal text-blue-600 text-6xl sm:text-8xl md:text-9xl leading-[0.94]"
+            className="font-serif italic font-normal text-[#1848ff] text-6xl sm:text-8xl md:text-9xl leading-[0.94]"
           >
             Publishing.
           </motion.span>
@@ -179,7 +179,7 @@ export function ParallaxHero() {
           <a
             href="#architecture"
             onClick={scrollToCards}
-            className="group relative inline-flex items-center gap-2.5 rounded-full bg-slate-950 px-7 py-3.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-blue-600 hover:shadow-lg active:scale-95"
+            className="group relative inline-flex items-center gap-2.5 rounded-full bg-[#1848ff] px-7 py-3.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-blue-700 hover:shadow-lg active:scale-95"
           >
             <span>Explore Architecture</span>
             <ArrowDown className="size-4 transition-transform duration-300 group-hover:translate-y-0.5" />
@@ -187,14 +187,14 @@ export function ParallaxHero() {
 
           <Link
             href="/privacy"
-            className="inline-flex items-center gap-2 rounded-full border border-black/[0.1] bg-white/90 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur-md transition-all hover:border-violet-300 hover:bg-violet-50/50 active:scale-95 shadow-sm"
+            className="inline-flex items-center gap-2 rounded-full border border-black/[0.1] bg-white/90 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur-md transition-all hover:border-emerald-300 hover:bg-emerald-50/50 active:scale-95 shadow-sm"
           >
             <span>Compliance &amp; Privacy</span>
             <ArrowRight className="size-4 opacity-60 transition-transform group-hover:translate-x-0.5" />
           </Link>
         </motion.div>
 
-        {/* Clean, High-Contrast 3-Metric Strip with Distinct Colors */}
+        {/* Clean, High-Contrast 3-Metric Strip (Triad: Amber, Ultramarine, Mint) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -202,7 +202,7 @@ export function ParallaxHero() {
           className="mt-14 mx-auto max-w-2xl pt-6 border-t border-black/[0.06] grid grid-cols-3 gap-6 text-center"
         >
           <div>
-            <span className="font-mono text-2xl font-black text-violet-600 block">
+            <span className="font-mono text-2xl font-black text-[#f59e0b] block">
               0 Bytes
             </span>
             <span className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground block">
@@ -210,7 +210,7 @@ export function ParallaxHero() {
             </span>
           </div>
           <div>
-            <span className="font-mono text-2xl font-black text-amber-600 block">
+            <span className="font-mono text-2xl font-black text-[#1848ff] block">
               TLS 1.3
             </span>
             <span className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground block">
@@ -218,7 +218,7 @@ export function ParallaxHero() {
             </span>
           </div>
           <div>
-            <span className="font-mono text-2xl font-black text-emerald-600 block">
+            <span className="font-mono text-2xl font-black text-[#059669] block">
               v20.0
             </span>
             <span className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground block">

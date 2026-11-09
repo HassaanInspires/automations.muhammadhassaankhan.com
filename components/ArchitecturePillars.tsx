@@ -7,42 +7,42 @@ import { Bot, Key, ShieldCheck } from 'lucide-react';
 const PILLARS = [
   {
     number: '01',
-    numeralColor: 'text-violet-600',
-    borderHover: 'hover:border-violet-300',
+    numeralColor: 'text-[#1848ff]',
+    borderHover: 'hover:border-blue-300',
     title: 'Scheduled Synthesis',
     subtitle: 'DeepSeek-V3 Engine',
     description:
       'Autonomous cron triggers activate DeepSeek-V3 with temperature clamped to 0.70, formulating structured, high-signal technical briefings for Facebook Page broadcasting.',
     tag: 'Clamped AI Worker',
-    tagColor: 'bg-violet-50 text-violet-700 border-violet-200',
+    tagColor: 'bg-blue-50 text-[#1848ff] border-blue-200',
     icon: Bot,
-    iconBg: 'bg-violet-600 text-white',
+    iconBg: 'bg-[#1848ff] text-white',
   },
   {
     number: '02',
-    numeralColor: 'text-rose-600',
-    borderHover: 'hover:border-rose-300',
+    numeralColor: 'text-[#f59e0b]',
+    borderHover: 'hover:border-amber-300',
     title: 'Ephemeral Execution',
     subtitle: 'Zero Data Retention',
     description:
       'Payloads exist strictly in volatile RAM during active dispatch. Once the Meta Graph endpoint responds, memory is completely wiped. Zero disk writes or databases.',
     tag: '0 Bytes Persisted',
-    tagColor: 'bg-rose-50 text-rose-700 border-rose-200',
+    tagColor: 'bg-amber-50 text-[#b45309] border-amber-200',
     icon: ShieldCheck,
-    iconBg: 'bg-rose-600 text-white',
+    iconBg: 'bg-[#f59e0b] text-white',
   },
   {
     number: '03',
-    numeralColor: 'text-blue-600',
-    borderHover: 'hover:border-blue-300',
+    numeralColor: 'text-[#059669]',
+    borderHover: 'hover:border-emerald-300',
     title: 'Meta Graph Handshake',
     subtitle: 'Graph API v20.0 Endpoints',
     description:
       'Direct TLS 1.3 encrypted HTTPS transmission scoped strictly to pages_manage_posts on Muhammad Hassaan Khan’s Page. No user profiling or audience harvesting.',
     tag: 'OAuth 2.0 Scoped',
-    tagColor: 'bg-blue-50 text-blue-700 border-blue-200',
+    tagColor: 'bg-emerald-50 text-[#059669] border-emerald-200',
     icon: Key,
-    iconBg: 'bg-blue-600 text-white',
+    iconBg: 'bg-[#059669] text-white',
   },
 ];
 
@@ -51,13 +51,13 @@ export function ArchitecturePillars() {
     <div id="architecture" className="w-full scroll-mt-24">
       {/* Section Header */}
       <div className="text-center mb-14">
-        <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/70 px-3.5 py-1 font-mono text-[11px] text-blue-800 mb-4 shadow-sm">
-          <span className="size-1.5 rounded-full bg-blue-600" />
+        <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/70 px-3.5 py-1 font-mono text-[11px] text-blue-900 mb-4 shadow-sm">
+          <span className="size-1.5 rounded-full bg-[#1848ff]" />
           <span className="font-semibold">Execution Architecture</span>
         </div>
         <h2 className="text-4xl font-black tracking-tight text-foreground sm:text-5xl lg:text-6xl">
           Engineered for{' '}
-          <span className="font-serif italic font-normal text-blue-600">
+          <span className="font-serif italic font-normal text-[#1848ff]">
             Absolute Clarity.
           </span>
         </h2>
@@ -66,7 +66,7 @@ export function ArchitecturePillars() {
         </p>
       </div>
 
-      {/* 3 Stylish Bento Cards with Distinct Solid Color Accents */}
+      {/* 3 Stylish Bento Cards with Harmonic Accents */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
         {PILLARS.map((pillar, idx) => {
           const Icon = pillar.icon;
