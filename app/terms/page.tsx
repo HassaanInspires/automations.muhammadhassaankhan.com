@@ -2,43 +2,54 @@ import type { Metadata } from 'next';
 import { LegalLayout } from '@/components/LegalLayout';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — automations.muhammadhassaankhan.com',
-  description: 'Terms of Service for the personal Facebook automation tool.',
+  title: 'Terms of Service — AutoPost',
+  description: 'Terms of Service for AutoPost, an autonomous personal Facebook publishing engine.',
 };
 
 export default function TermsPage() {
   return (
     <LegalLayout
       title="Terms of Service"
-      lastUpdated="November 6, 2026"
-      badge="Terms of Use"
+      lastUpdated="November 9, 2026"
+      badge="Private Operator Terms"
     >
       <h1>Terms of Service</h1>
-      <p>Last updated: November 6, 2026</p>
-      <p>By using this application, you agree to these terms.</p>
-
-      <h2>1. Description of Service</h2>
+      <p>Last updated: November 9, 2026</p>
       <p>
-        This application is a personal tool designed to automate the generation and posting of content to my personal Facebook Page using AI and the Meta Graph API.
+        These Terms of Service govern the use of <strong>AutoPost</strong>, developed and operated solely
+        by <strong>Muhammad Hassaan Khan</strong>.
       </p>
 
-      <h2>2. Acceptable Use</h2>
+      <h2>1. Purpose of Service</h2>
       <p>
-        This tool is strictly for my own personal use. It is not provided as a public service, SaaS, or commercial product for third parties.
+        AutoPost is an autonomous personal automation utility designed exclusively to generate and publish scheduled
+        briefings to the personal Facebook Page of Muhammad Hassaan Khan using AI intelligence and the official
+        Meta Graph API v20.0.
       </p>
 
-      <h2>3. Limitation of Liability</h2>
+      <h2>2. Private Operator License</h2>
       <p>
-        This application is provided &quot;as is&quot; without any warranties. I am not liable for any API bans, account restrictions, or issues that arise from the use of this tool.
+        This platform is strictly for personal, private administrative use by its developer. It does not provide public
+        accounts, commercial SaaS features, subscription services, or external multi-user access.
       </p>
 
-      <h2>4. Contact</h2>
+      <h2>3. Meta Platform Terms Compliance</h2>
       <p>
-        For any questions regarding these Terms, please contact{' '}
+        AutoPost operates in strict accordance with Meta&apos;s Developer Policies and Platform Terms. All interactions
+        with Facebook endpoints are restricted to authorized Page Access Tokens under the owner&apos;s personal administrative control.
+      </p>
+
+      <h2>4. Limitation of Liability</h2>
+      <p>
+        The software is maintained for personal use and provided &quot;as is&quot;, without warranties of any kind.
+      </p>
+
+      <h2>5. Inquiries &amp; Contact</h2>
+      <p>
+        For inquiries regarding these Terms, contact{' '}
         <a href="mailto:m.hassaankhan.official@gmail.com">
           m.hassaankhan.official@gmail.com
-        </a>
-        .
+        </a>.
       </p>
     </LegalLayout>
   );

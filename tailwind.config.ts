@@ -10,36 +10,42 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#0a0a0a',
-        surface: '#121212',
-        card: '#161616',
-        border: '#262626',
-        'border-hover': '#404040',
-        foreground: '#f5f5f5',
-        muted: '#a3a3a3',
-        subtle: '#737373',
-        lime: {
-          DEFAULT: '#d4ff00',
-          hover: '#c1eb00',
-          muted: 'rgba(212, 255, 0, 0.1)',
+        background: 'var(--bg)',
+        foreground: 'var(--text)',
+        elevated: 'var(--bg-elevated)',
+        muted: {
+          DEFAULT: 'var(--bg-muted)',
+          foreground: 'var(--text-muted)',
+        },
+        border: 'var(--border)',
+        accent: {
+          DEFAULT: 'var(--accent)',
+          foreground: 'var(--accent-fg)',
         },
       },
+      boxShadow: {
+        'card-stacked': 'var(--shadow-card-stacked)',
+        'card-stacked-dark': 'var(--shadow-card-stacked-dark)',
+      },
       fontFamily: {
-        sans: [
-          'Inter',
-          '-apple-system',
-          'BlinkMacSystemFont',
-          'Segoe UI',
-          'Roboto',
-          'sans-serif',
-        ],
-        mono: [
-          'JetBrains Mono',
-          'Fira Code',
-          'Monaco',
-          'Courier New',
-          'monospace',
-        ],
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-serif)', 'Georgia', 'serif'],
+        mono: ['var(--font-mono)', 'monospace'],
+      },
+      animation: {
+        'marquee': 'marquee 28s linear infinite',
+        'marquee-reverse': 'marquee 28s linear infinite reverse',
+        'pulse-subtle': 'pulseSubtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        pulseSubtle: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.4' },
+        },
       },
     },
   },
