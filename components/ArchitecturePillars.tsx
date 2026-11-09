@@ -7,39 +7,42 @@ import { Bot, Key, ShieldCheck } from 'lucide-react';
 const PILLARS = [
   {
     number: '01',
-    gradient: 'from-violet-600 via-indigo-600 to-blue-600',
+    numeralColor: 'text-violet-600',
     borderHover: 'hover:border-violet-300',
     title: 'Scheduled Synthesis',
     subtitle: 'DeepSeek-V3 Engine',
     description:
       'Autonomous cron triggers activate DeepSeek-V3 with temperature clamped to 0.70, formulating structured, high-signal technical briefings for Facebook Page broadcasting.',
     tag: 'Clamped AI Worker',
+    tagColor: 'bg-violet-50 text-violet-700 border-violet-200',
     icon: Bot,
-    iconBg: 'bg-violet-50 text-violet-600',
+    iconBg: 'bg-violet-600 text-white',
   },
   {
     number: '02',
-    gradient: 'from-rose-500 via-pink-500 to-amber-500',
+    numeralColor: 'text-rose-600',
     borderHover: 'hover:border-rose-300',
     title: 'Ephemeral Execution',
     subtitle: 'Zero Data Retention',
     description:
       'Payloads exist strictly in volatile RAM during active dispatch. Once the Meta Graph endpoint responds, memory is completely wiped. Zero disk writes or databases.',
     tag: '0 Bytes Persisted',
+    tagColor: 'bg-rose-50 text-rose-700 border-rose-200',
     icon: ShieldCheck,
-    iconBg: 'bg-rose-50 text-rose-600',
+    iconBg: 'bg-rose-600 text-white',
   },
   {
     number: '03',
-    gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
-    borderHover: 'hover:border-emerald-300',
+    numeralColor: 'text-blue-600',
+    borderHover: 'hover:border-blue-300',
     title: 'Meta Graph Handshake',
     subtitle: 'Graph API v20.0 Endpoints',
     description:
       'Direct TLS 1.3 encrypted HTTPS transmission scoped strictly to pages_manage_posts on Muhammad Hassaan Khan’s Page. No user profiling or audience harvesting.',
     tag: 'OAuth 2.0 Scoped',
+    tagColor: 'bg-blue-50 text-blue-700 border-blue-200',
     icon: Key,
-    iconBg: 'bg-emerald-50 text-emerald-600',
+    iconBg: 'bg-blue-600 text-white',
   },
 ];
 
@@ -48,13 +51,13 @@ export function ArchitecturePillars() {
     <div id="architecture" className="w-full scroll-mt-24">
       {/* Section Header */}
       <div className="text-center mb-14">
-        <div className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-white/80 px-3.5 py-1 font-mono text-[11px] text-muted-foreground mb-4 shadow-sm">
-          <span className="size-1.5 rounded-full bg-gradient-to-r from-violet-500 to-cyan-500" />
-          <span>Execution Architecture</span>
+        <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/70 px-3.5 py-1 font-mono text-[11px] text-blue-800 mb-4 shadow-sm">
+          <span className="size-1.5 rounded-full bg-blue-600" />
+          <span className="font-semibold">Execution Architecture</span>
         </div>
         <h2 className="text-4xl font-black tracking-tight text-foreground sm:text-5xl lg:text-6xl">
           Engineered for{' '}
-          <span className="font-serif italic font-normal text-slate-900">
+          <span className="font-serif italic font-normal text-blue-600">
             Absolute Clarity.
           </span>
         </h2>
@@ -63,7 +66,7 @@ export function ArchitecturePillars() {
         </p>
       </div>
 
-      {/* 3 Stylish Bento Cards with Multi-Colored Gradients */}
+      {/* 3 Stylish Bento Cards with Distinct Solid Color Accents */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
         {PILLARS.map((pillar, idx) => {
           const Icon = pillar.icon;
@@ -74,13 +77,13 @@ export function ArchitecturePillars() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className={`group relative flex flex-col justify-between rounded-3xl border border-black/[0.08] bg-white/85 p-8 sm:p-9 shadow-card-stacked transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${pillar.borderHover}`}
+              className={`group relative flex flex-col justify-between rounded-3xl border border-black/[0.08] bg-white/90 p-8 sm:p-9 shadow-card-stacked transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${pillar.borderHover}`}
             >
               <div>
-                {/* Big Gradient Numeral & Icon */}
+                {/* Bold Solid Numeral & Accented Icon */}
                 <div className="flex items-center justify-between">
                   <span
-                    className={`font-serif text-5xl font-normal bg-gradient-to-r ${pillar.gradient} bg-clip-text text-transparent`}
+                    className={`font-serif text-5xl font-bold ${pillar.numeralColor}`}
                   >
                     {pillar.number}
                   </span>
@@ -104,7 +107,7 @@ export function ArchitecturePillars() {
 
               {/* Card Footer Tag */}
               <div className="mt-8 pt-5 border-t border-black/[0.05] flex items-center justify-between">
-                <span className="font-mono text-[10px] text-muted-foreground">
+                <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 font-mono text-[10px] font-semibold ${pillar.tagColor}`}>
                   {pillar.tag}
                 </span>
                 <span className="size-1.5 rounded-full bg-emerald-500" />

@@ -26,14 +26,14 @@ export function Navbar() {
     <header className="sticky top-4 z-50 w-full px-4 sm:px-6">
       <nav
         aria-label="Main Navigation"
-        className="mx-auto flex max-w-5xl items-center justify-between rounded-full border border-black/[0.08] bg-white/85 backdrop-blur-xl px-3.5 py-2 shadow-card-stacked transition-all"
+        className="mx-auto flex max-w-5xl items-center justify-between rounded-full border border-black/[0.08] bg-white/90 backdrop-blur-xl px-3.5 py-2 shadow-card-stacked transition-all"
       >
-        {/* Brand with Iridescent Sparkle Accent */}
+        {/* Brand with Electric Blue Accent */}
         <Link
           href="/"
           className="group flex items-center gap-2.5 pl-2 pr-1 py-1 text-sm font-semibold tracking-tight text-foreground transition-opacity hover:opacity-85"
         >
-          <div className="relative flex size-7 items-center justify-center rounded-lg bg-gradient-to-tr from-violet-600 via-blue-600 to-cyan-500 text-white shadow-sm">
+          <div className="relative flex size-7 items-center justify-center rounded-lg bg-blue-600 text-white shadow-sm">
             <span className="text-[10px] font-black tracking-wider">AP</span>
             <span className="absolute -top-0.5 -right-0.5 flex size-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
@@ -62,7 +62,7 @@ export function Navbar() {
                   onMouseLeave={() => setHoveredPath(null)}
                   className={`relative z-10 block rounded-full px-4 py-1.5 text-xs font-medium transition-colors ${
                     isActive
-                      ? 'text-foreground font-semibold'
+                      ? 'text-blue-600 font-semibold'
                       : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
@@ -73,7 +73,7 @@ export function Navbar() {
                 {isActive && (
                   <motion.div
                     layoutId="active-pill"
-                    className="absolute inset-0 rounded-full bg-black/[0.06]"
+                    className="absolute inset-0 rounded-full bg-blue-50"
                     transition={{ type: 'spring', stiffness: 400, damping: 32 }}
                   />
                 )}
@@ -89,17 +89,17 @@ export function Navbar() {
           })}
         </ul>
 
-        {/* Right cluster: Live Beacon + Gradient CTA */}
+        {/* Right cluster: Live Beacon + Solid Accent Button */}
         <div className="flex items-center gap-2">
-          {/* Live Engine Status */}
-          <div className="hidden lg:inline-flex items-center gap-1.5 rounded-full border border-black/[0.06] bg-black/[0.02] px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
+          {/* Live Engine Status: Emerald Accent */}
+          <div className="hidden lg:inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 font-mono text-[10px] text-emerald-800">
             <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Meta Graph v20.0</span>
+            <span className="font-semibold">Meta Graph v20.0</span>
           </div>
 
           <Link
             href="/privacy"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-violet-600 via-indigo-600 to-blue-600 px-4 py-1.5 text-xs font-medium text-white transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98] shadow-sm hover:shadow-glow-rainbow"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-slate-950 px-4 py-1.5 text-xs font-medium text-white transition-all duration-200 hover:bg-blue-600 active:scale-[0.98] shadow-sm"
           >
             <span>Legal Portal</span>
             <ArrowUpRight className="size-3.5 opacity-90" />
@@ -136,7 +136,7 @@ export function Navbar() {
                       href={link.href}
                       className={`block rounded-xl px-4 py-2 text-sm font-medium transition-colors ${
                         isActive
-                          ? 'bg-black/[0.06] text-foreground font-semibold'
+                          ? 'bg-blue-50 text-blue-600 font-semibold'
                           : 'text-muted-foreground hover:bg-black/[0.03] hover:text-foreground'
                       }`}
                     >
