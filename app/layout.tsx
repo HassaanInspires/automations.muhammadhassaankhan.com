@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { ThemeProvider } from '@/components/ThemeProvider';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 
@@ -24,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -33,25 +32,18 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="grain-overlay min-h-[100dvh] bg-background font-sans text-foreground antialiased selection:bg-accent/20 selection:text-accent">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange={false}
-        >
-          <div className="relative flex min-h-[100dvh] flex-col">
-            {/* Top ambient radial spotlight */}
-            <div
-              className="pointer-events-none fixed inset-x-0 top-0 h-[480px] bg-gradient-to-b from-blue-500/[0.03] dark:from-blue-500/[0.05] to-transparent blur-3xl"
-              aria-hidden="true"
-            />
+      <body className="grain-overlay min-h-[100dvh] bg-background font-sans text-foreground antialiased selection:bg-purple-500/20 selection:text-purple-700">
+        <div className="relative flex min-h-[100dvh] flex-col">
+          {/* Top subtle iridescent ambient mesh glow */}
+          <div
+            className="pointer-events-none fixed inset-x-0 top-0 h-[520px] bg-gradient-to-b from-purple-500/[0.04] via-blue-500/[0.03] to-transparent blur-3xl -z-10"
+            aria-hidden="true"
+          />
 
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-        </ThemeProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

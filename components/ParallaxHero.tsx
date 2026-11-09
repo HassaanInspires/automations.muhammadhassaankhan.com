@@ -3,12 +3,12 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
-import { ArrowDown, ArrowRight, ShieldCheck, Cpu, Sparkles, Activity, Lock, Database } from 'lucide-react';
+import { ArrowDown, ArrowRight, Cpu, Sparkles, Lock } from 'lucide-react';
 
 export function ParallaxHero() {
   const containerRef = React.useRef<HTMLDivElement>(null);
 
-  // Mouse tracking for subtle tilt on hero elements
+  // Smooth mouse tilt coordinates for floating badges
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -16,10 +16,10 @@ export function ParallaxHero() {
   const smoothMouseX = useSpring(mouseX, springConfig);
   const smoothMouseY = useSpring(mouseY, springConfig);
 
-  const badgeTiltX1 = useTransform(smoothMouseY, [-200, 200], [8, -8]);
-  const badgeTiltY1 = useTransform(smoothMouseX, [-200, 200], [-8, 8]);
-  const badgeTiltX2 = useTransform(smoothMouseY, [-200, 200], [-10, 10]);
-  const badgeTiltY2 = useTransform(smoothMouseX, [-200, 200], [10, -10]);
+  const badgeTiltX1 = useTransform(smoothMouseY, [-200, 200], [6, -6]);
+  const badgeTiltY1 = useTransform(smoothMouseX, [-200, 200], [-6, 6]);
+  const badgeTiltX2 = useTransform(smoothMouseY, [-200, 200], [-8, 8]);
+  const badgeTiltY2 = useTransform(smoothMouseX, [-200, 200], [8, -8]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = containerRef.current?.getBoundingClientRect();
@@ -47,40 +47,35 @@ export function ParallaxHero() {
     restDelta: 0.001,
   });
 
-  // Parallax offsets
-  const yFloatingBadge1 = useTransform(smoothProgress, [0, 1], [0, -140]);
-  const yFloatingBadge2 = useTransform(smoothProgress, [0, 1], [0, 160]);
-  const yFloatingBadge3 = useTransform(smoothProgress, [0, 1], [0, -80]);
-  const opacityFade = useTransform(smoothProgress, [0, 0.75], [1, 0.1]);
-  const scaleHero = useTransform(smoothProgress, [0, 1], [1, 0.94]);
-  const blurHero = useTransform(smoothProgress, [0, 0.9], [0, 4]);
+  const yFloatingBadge1 = useTransform(smoothProgress, [0, 1], [0, -100]);
+  const yFloatingBadge2 = useTransform(smoothProgress, [0, 1], [0, 120]);
+  const opacityFade = useTransform(smoothProgress, [0, 0.8], [1, 0.15]);
+  const scaleHero = useTransform(smoothProgress, [0, 1], [1, 0.96]);
 
-  const scrollToSimulator = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const scrollToCards = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const element = document.getElementById('simulator');
+    const element = document.getElementById('architecture');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
-  const titleWords = ['Autonomous', 'Publishing.'];
 
   return (
     <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative overflow-hidden pt-16 pb-24 sm:pt-24 sm:pb-36 lg:pt-36 perspective-[1400px]"
+      className="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-36 lg:pt-36"
     >
-      {/* Ambient Luminous Mesh Glow (Pure CSS GPU layer) */}
+      {/* Multi-Colored Ambient Iridescent Mesh (Soft Warm Alabaster Atmosphere) */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 flex justify-center overflow-hidden"
       >
-        <div className="h-[520px] w-[860px] rounded-full bg-gradient-to-tr from-amber-200/20 via-blue-500/10 to-indigo-500/15 blur-[120px] dark:from-blue-600/10 dark:via-indigo-500/10 dark:to-emerald-500/05" />
+        <div className="h-[460px] w-[800px] rounded-full bg-gradient-to-r from-violet-400/15 via-rose-300/15 via-cyan-400/15 to-emerald-300/15 blur-[100px]" />
       </div>
 
-      {/* Floating Spatial Micro-Badge 1 (Top Left) */}
+      {/* Floating Spatial Micro-Badge (Left: Meta Graph API) */}
       <motion.div
         style={{
           y: yFloatingBadge1,
@@ -88,7 +83,7 @@ export function ParallaxHero() {
           rotateZ: -2,
           opacity: opacityFade,
         }}
-        className="pointer-events-none absolute left-4 sm:left-12 lg:left-24 top-24 hidden md:flex items-center gap-3 rounded-2xl border border-black/[0.08] dark:border-white/[0.08] bg-white/80 dark:bg-[#11141f]/80 backdrop-blur-2xl px-4 py-2.5 shadow-card-stacked z-20 transition-transform duration-200"
+        className="pointer-events-none absolute left-6 sm:left-14 lg:left-24 top-24 hidden md:flex items-center gap-3 rounded-2xl border border-black/[0.08] bg-white/80 backdrop-blur-xl px-4 py-2.5 shadow-card-stacked z-20"
       >
         <span className="relative flex size-2.5">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
@@ -96,14 +91,14 @@ export function ParallaxHero() {
         </span>
         <div className="flex flex-col text-left">
           <div className="flex items-center gap-1.5 font-mono text-[11px] font-bold text-foreground">
-            <span>Meta Graph API</span>
-            <span className="rounded bg-black/[0.05] dark:bg-white/[0.06] px-1 py-0.5 text-[9px] text-accent">v20.0</span>
+            <span>Meta Graph</span>
+            <span className="rounded bg-gradient-to-r from-emerald-500 to-teal-500 px-1 py-0.5 text-[9px] text-white">v20.0</span>
           </div>
-          <span className="text-[10px] text-muted-foreground font-sans">Official Endpoint Handshake</span>
+          <span className="text-[10px] text-muted-foreground font-sans">Verified HTTPS Endpoints</span>
         </div>
       </motion.div>
 
-      {/* Floating Spatial Micro-Badge 2 (Top Right) */}
+      {/* Floating Spatial Micro-Badge (Right: DeepSeek-V3 Engine) */}
       <motion.div
         style={{
           y: yFloatingBadge2,
@@ -111,86 +106,70 @@ export function ParallaxHero() {
           rotateZ: 2.5,
           opacity: opacityFade,
         }}
-        className="pointer-events-none absolute right-4 sm:right-12 lg:right-24 top-36 hidden md:flex items-center gap-3 rounded-2xl border border-black/[0.08] dark:border-white/[0.08] bg-white/80 dark:bg-[#11141f]/80 backdrop-blur-2xl px-4 py-2.5 shadow-card-stacked z-20 transition-transform duration-200"
+        className="pointer-events-none absolute right-6 sm:right-14 lg:right-24 top-32 hidden md:flex items-center gap-3 rounded-2xl border border-black/[0.08] bg-white/80 backdrop-blur-xl px-4 py-2.5 shadow-card-stacked z-20"
       >
-        <div className="flex size-7 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400">
+        <div className="flex size-7 items-center justify-center rounded-xl bg-gradient-to-tr from-violet-600 to-indigo-600 text-white shadow-sm">
           <Cpu className="size-3.5" />
         </div>
         <div className="flex flex-col text-left">
           <div className="flex items-center gap-1.5 font-mono text-[11px] font-bold text-foreground">
             <span>DeepSeek-V3</span>
-            <span className="rounded bg-black/[0.05] dark:bg-white/[0.06] px-1 py-0.5 text-[9px] text-muted-foreground">0.70</span>
+            <span className="rounded bg-violet-100 px-1 py-0.5 text-[9px] text-violet-700 font-semibold">0.70 Temp</span>
           </div>
-          <span className="text-[10px] text-muted-foreground font-sans">Clamped Editorial Synthesis</span>
+          <span className="text-[10px] text-muted-foreground font-sans">Clamped AI Synthesis</span>
         </div>
-      </motion.div>
-
-      {/* Floating Spatial Micro-Badge 3 (Subtle Bottom Floating Pill) */}
-      <motion.div
-        style={{
-          y: yFloatingBadge3,
-          rotateZ: -1,
-          opacity: opacityFade,
-        }}
-        className="pointer-events-none absolute left-1/4 -bottom-6 hidden lg:flex items-center gap-2.5 rounded-full border border-black/[0.06] dark:border-white/[0.06] bg-white/70 dark:bg-[#11141f]/70 backdrop-blur-xl px-4 py-1.5 shadow-sm font-mono text-[11px] text-muted-foreground z-10"
-      >
-        <Lock className="size-3 text-emerald-600 dark:text-emerald-400" />
-        <span>Zero Database Persistence • Ephemeral Memory Buffer</span>
       </motion.div>
 
       {/* Main Monumental Stage */}
       <motion.div
-        style={{
-          scale: scaleHero,
-        }}
+        style={{ scale: scaleHero }}
         className="mx-auto max-w-5xl px-4 text-center sm:px-6 relative z-10"
       >
-        {/* Eyebrow Pill */}
+        {/* Eyebrow Pill with Chromatic Micro-Glow */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-white/75 dark:bg-white/[0.04] px-4 py-1.5 text-xs font-medium text-foreground backdrop-blur-md shadow-sm"
+          className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-white/80 px-4 py-1.5 text-xs font-medium text-foreground backdrop-blur-md shadow-sm"
         >
-          <span className="size-1.5 rounded-full bg-emerald-500" />
-          <span className="text-muted-foreground">Private Facebook Publishing System</span>
-          <span className="text-border">•</span>
+          <span className="size-2 rounded-full bg-gradient-to-tr from-violet-500 to-rose-500 animate-pulse" />
+          <span className="text-muted-foreground">Autonomous Facebook Pipeline</span>
+          <span className="text-black/10">•</span>
           <span className="font-semibold text-foreground">Muhammad Hassaan Khan</span>
         </motion.div>
 
-        {/* Monumental Headline with Spring Reveal & Editorial Italic Contrast */}
+        {/* Monumental Headline: Vibrant Rainbow Gradient Sans + Pure Editorial Serif Italic */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
           <motion.span
-            initial={{ opacity: 0, y: 35, rotateX: 20 }}
-            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl font-extrabold tracking-[-0.04em] text-foreground sm:text-7xl md:text-8xl lg:text-9xl leading-[0.96]"
+            className="text-6xl font-black tracking-[-0.04em] sm:text-8xl md:text-9xl leading-[0.94] bg-gradient-to-r from-violet-600 via-rose-500 to-amber-500 bg-clip-text text-transparent"
           >
             Autonomous
           </motion.span>
           <motion.span
-            initial={{ opacity: 0, y: 35, rotateX: 20 }}
-            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif italic font-normal text-foreground/90 text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.96]"
+            className="font-serif italic font-normal text-slate-900 text-6xl sm:text-8xl md:text-9xl leading-[0.94]"
           >
             Publishing.
           </motion.span>
         </div>
 
-        {/* Crisp Architectural Subtext */}
+        {/* Short, Punchy 1-Sentence Subtext (Stripped of text walls) */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8 mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg lg:text-xl leading-relaxed font-normal"
+          className="mt-6 mx-auto max-w-xl text-base text-muted-foreground sm:text-lg leading-relaxed font-normal"
         >
-          A private, scheduled pipeline connecting DeepSeek AI intelligence to the official
-          Meta Graph API v20.0 for autonomous publishing to Muhammad Hassaan Khan&apos;s personal Facebook Page.
-          Engineered with strict zero-storage ephemeral execution.
+          High-signal technical briefings synthesized via DeepSeek-V3 and dispatched directly to
+          Muhammad Hassaan Khan&apos;s Facebook Page via Meta Graph API v20.0 with zero data retention.
         </motion.p>
 
-        {/* Magnetic Tactile CTAs */}
+        {/* Multi-Colored Iridescent CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -198,60 +177,52 @@ export function ParallaxHero() {
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
           <a
-            href="#simulator"
-            onClick={scrollToSimulator}
-            className="group relative inline-flex items-center gap-2.5 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background shadow-lg transition-all hover:opacity-90 hover:shadow-xl active:scale-95"
+            href="#architecture"
+            onClick={scrollToCards}
+            className="group relative inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-violet-600 via-indigo-600 to-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-[1.02] hover:shadow-glow-rainbow active:scale-95"
           >
-            <span>Simulate Live Dispatch</span>
-            <ArrowDown className="size-4 transition-transform duration-300 group-hover:translate-y-1" />
+            <span>Explore Architecture</span>
+            <ArrowDown className="size-4 transition-transform duration-300 group-hover:translate-y-0.5" />
           </a>
 
           <Link
             href="/privacy"
-            className="inline-flex items-center gap-2 rounded-full border border-black/[0.1] dark:border-white/[0.12] bg-white/70 dark:bg-white/[0.04] px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur-md transition-all hover:bg-black/5 dark:hover:bg-white/5 active:scale-95 shadow-sm"
+            className="inline-flex items-center gap-2 rounded-full border border-black/[0.1] bg-white/80 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur-md transition-all hover:bg-black/5 active:scale-95 shadow-sm"
           >
             <span>Compliance &amp; Privacy</span>
             <ArrowRight className="size-4 opacity-60 transition-transform group-hover:translate-x-0.5" />
           </Link>
         </motion.div>
 
-        {/* Minimalist Engineering Specs Strip */}
+        {/* Clean, High-Contrast 3-Metric Strip */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-16 mx-auto max-w-3xl pt-8 border-t border-black/[0.06] dark:border-white/[0.06] grid grid-cols-2 sm:grid-cols-4 gap-6 text-left"
+          className="mt-14 mx-auto max-w-2xl pt-6 border-t border-black/[0.06] grid grid-cols-3 gap-6 text-center"
         >
           <div>
-            <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground/70 block">
-              Disk Persistence
-            </span>
-            <span className="mt-1 font-mono text-sm font-bold text-foreground block">
+            <span className="font-mono text-2xl font-black bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent block">
               0 Bytes
             </span>
-          </div>
-          <div>
-            <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground/70 block">
-              Transport Security
-            </span>
-            <span className="mt-1 font-mono text-sm font-bold text-foreground block">
-              TLS 1.3 Direct
+            <span className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground block">
+              Disk Persistence
             </span>
           </div>
           <div>
-            <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground/70 block">
-              Target Scope
+            <span className="font-mono text-2xl font-black bg-gradient-to-r from-rose-500 to-amber-500 bg-clip-text text-transparent block">
+              TLS 1.3
             </span>
-            <span className="mt-1 font-mono text-sm font-bold text-foreground block">
-              pages_manage_posts
+            <span className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground block">
+              Encrypted Handshake
             </span>
           </div>
           <div>
-            <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground/70 block">
-              Execution Architecture
+            <span className="font-mono text-2xl font-black bg-gradient-to-r from-emerald-600 to-teal-500 bg-clip-text text-transparent block">
+              v20.0
             </span>
-            <span className="mt-1 font-mono text-sm font-bold text-foreground block">
-              Ephemeral RAM
+            <span className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground block">
+              Meta Graph API
             </span>
           </div>
         </motion.div>

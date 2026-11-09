@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { TOC } from './TOC';
-import { Shield, Clock, ArrowLeft, CheckCircle2, ShieldAlert, FileText } from 'lucide-react';
+import { Shield, Clock, ArrowLeft, CheckCircle2, ShieldAlert } from 'lucide-react';
 
 interface LegalLayoutProps {
   title: string;
@@ -24,20 +24,20 @@ export function LegalLayout({
       <div className="mb-8 flex flex-wrap items-center justify-between gap-3">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] dark:border-white/[0.08] bg-white/70 dark:bg-white/[0.04] px-4 py-1.5 text-xs font-semibold text-muted-foreground backdrop-blur-md transition-all hover:bg-black/5 dark:hover:bg-white/5 hover:text-foreground active:scale-95"
+          className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-white/80 px-4 py-1.5 text-xs font-semibold text-muted-foreground backdrop-blur-md transition-all hover:bg-black/5 hover:text-foreground active:scale-95 shadow-sm"
         >
           <ArrowLeft className="size-3.5" />
           <span>Back to Overview</span>
         </Link>
 
-        <div className="inline-flex items-center gap-1.5 rounded-full border border-accent/20 bg-accent/5 px-3 py-1 font-mono text-[11px] font-medium text-accent">
+        <div className="inline-flex items-center gap-1.5 rounded-full border border-violet-500/20 bg-violet-500/10 px-3 py-1 font-mono text-[11px] font-medium text-violet-700">
           <Shield className="size-3" />
           <span>{badge}</span>
         </div>
       </div>
 
       {/* Hero header */}
-      <div className="mb-10 border-b border-black/[0.08] dark:border-white/[0.08] pb-8">
+      <div className="mb-10 border-b border-black/[0.08] pb-8">
         <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
           {title}
         </h1>
@@ -47,7 +47,7 @@ export function LegalLayout({
             Last updated: <strong className="font-semibold text-foreground">{lastUpdated}</strong>
           </span>
           <span className="hidden sm:inline-block">•</span>
-          <span className="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+          <span className="inline-flex items-center gap-1.5 text-emerald-600">
             <CheckCircle2 className="size-3.5" />
             Meta Platform Terms v20.0 Standard
           </span>
@@ -56,7 +56,7 @@ export function LegalLayout({
         {/* Meta Reviewer Quick-Audit Callout */}
         <div className="mt-6 rounded-2xl border border-blue-500/20 bg-blue-500/[0.04] p-4 text-xs text-muted-foreground">
           <div className="flex items-center gap-2 font-semibold text-foreground">
-            <ShieldAlert className="size-4 text-accent" />
+            <ShieldAlert className="size-4 text-blue-600" />
             <span>Notice for Meta App Reviewers &amp; Compliance Auditors</span>
           </div>
           <p className="mt-1.5 leading-relaxed">
@@ -73,7 +73,7 @@ export function LegalLayout({
         <div className="lg:col-span-8">
           <article
             id="legal-content"
-            className="prose-custom rounded-3xl border border-black/[0.08] dark:border-white/[0.08] bg-white/80 dark:bg-[#11141f]/80 backdrop-blur-xl p-6 sm:p-10 shadow-card-stacked text-foreground"
+            className="prose-custom rounded-3xl border border-black/[0.08] bg-white/90 backdrop-blur-xl p-6 sm:p-10 shadow-card-stacked text-foreground"
           >
             {children}
           </article>
