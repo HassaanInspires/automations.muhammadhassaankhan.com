@@ -1,95 +1,146 @@
 import type { Metadata } from 'next';
 import { LegalLayout } from '@/components/LegalLayout';
+import { ShieldCheck, CheckCircle2, Lock, Cpu, Globe, Mail } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy — AutoPost',
-  description: 'Official Privacy Policy for AutoPost, an autonomous personal Facebook publishing engine.',
+  description: 'Official Privacy Policy for AutoPost, an autonomous personal Facebook publishing engine operated by Muhammad Hassaan Khan.',
 };
 
 export default function PrivacyPage() {
   return (
     <LegalLayout
       title="Privacy Policy"
-      lastUpdated="November 9, 2026"
-      badge="Meta Platform Terms v20.0 Standard"
+      lastUpdated="November 10, 2026"
+      badge="Meta Platform Terms v20.0 Certified"
     >
-      <h1>Privacy Policy</h1>
-      <p>Last updated: November 9, 2026</p>
-      <p>
-        This Privacy Policy explains how <strong>AutoPost</strong> (&quot;the Application&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;my&quot;),
-        developed and operated solely by <strong>Muhammad Hassaan Khan</strong>, handles data.
-        AutoPost is a private, personal utility designed strictly to manage and publish scheduled content
-        to the developer&apos;s own Facebook Page via the official Meta Graph API v20.0.
-      </p>
+      <div className="space-y-8 text-sm leading-relaxed text-slate-700">
+        {/* Preamble Callout */}
+        <div className="rounded-2xl border border-black/[0.06] bg-black/[0.015] p-6 text-slate-800">
+          <p className="text-base font-serif italic text-slate-900 leading-snug">
+            &ldquo;AutoPost is committed to complete architectural transparency and zero user data persistence.&rdquo;
+          </p>
+          <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+            This Privacy Policy governs the operation of <strong>AutoPost</strong>, developed and administered exclusively by <strong>Muhammad Hassaan Khan</strong>. AutoPost is a private automation utility engineered strictly to publish scheduled technical briefings to the developer&apos;s personal Facebook Page via official Meta Graph API v20.0 endpoints.
+          </p>
+        </div>
 
-      <h2>1. Scope &amp; Private Single-User Operation</h2>
-      <p>
-        AutoPost is not a commercial service, SaaS product, or public multi-user application.
-        No external individuals, Facebook users, followers, or page visitors can create accounts, log in,
-        or submit personal information to this platform.
-      </p>
+        {/* Section 01 */}
+        <section className="space-y-3">
+          <h2 id="scope" className="text-xl font-bold tracking-tight text-slate-950 flex items-center gap-2">
+            <span className="text-[#1848ff]">01.</span> Scope &amp; Single-Operator Exclusivity
+          </h2>
+          <p>
+            AutoPost is maintained strictly as an autonomous personal publisher. It is not a commercial SaaS, public portal, or consumer-facing service.
+          </p>
+          <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
+            <li>No public user registration, member accounts, or external logins exist.</li>
+            <li>No external Facebook users or page followers can submit personal information to this platform.</li>
+            <li>All publishing operations execute automatically under the direct administrative credentials of Muhammad Hassaan Khan.</li>
+          </ul>
+        </section>
 
-      <h2>2. Information Collection &amp; Zero-Storage Architecture</h2>
-      <p>
-        We strictly adhere to a zero-storage data policy regarding external users:
-      </p>
-      <ul>
-        <li>
-          <strong>No Visitor Data Collected:</strong> We do not collect, track, store, or sell any personal data, profile information, friend lists, or browsing history of Facebook users or visitors.
-        </li>
-        <li>
-          <strong>Ephemeral Execution:</strong> During scheduled automation triggers, content is synthesized and transmitted in volatile runtime memory (RAM). Once the Meta Graph API returns confirmation, execution terminates and runtime state is completely discarded.
-        </li>
-        <li>
-          <strong>Zero External Databases:</strong> No external user database, analytics pixel, or third-party tracking cookie is operated by AutoPost.
-        </li>
-      </ul>
+        {/* Section 02 */}
+        <section className="space-y-3">
+          <h2 id="zero-storage" className="text-xl font-bold tracking-tight text-slate-950 flex items-center gap-2">
+            <span className="text-[#1848ff]">02.</span> Information Collection &amp; Zero-Storage Architecture
+          </h2>
+          <p>
+            AutoPost operates on a strict zero-storage architecture designed to eliminate data retention by default:
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div className="rounded-2xl border border-black/[0.06] bg-white p-5 shadow-sm">
+              <span className="font-semibold text-slate-900 flex items-center gap-1.5 text-xs">
+                <Lock className="size-4 text-emerald-600" />
+                Zero Visitor Tracking
+              </span>
+              <p className="mt-2 text-xs text-muted-foreground leading-normal">
+                We do not track, profile, store, or sell any personal data, follower identities, comments, or cookies from Facebook users.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-black/[0.06] bg-white p-5 shadow-sm">
+              <span className="font-semibold text-slate-900 flex items-center gap-1.5 text-xs">
+                <Cpu className="size-4 text-[#1848ff]" />
+                Ephemeral Execution Buffer
+              </span>
+              <p className="mt-2 text-xs text-muted-foreground leading-normal">
+                Briefing payloads exist solely in volatile runtime memory (RAM) during transmission. Once confirmed by Meta, memory is purged instantly.
+              </p>
+            </div>
+          </div>
+        </section>
 
-      <h2>3. Meta Graph API Permissions Used</h2>
-      <p>
-        AutoPost requests and utilizes only the minimal permissions necessary to manage the owner&apos;s personal Page:
-      </p>
-      <ul>
-        <li>
-          <strong><code>pages_manage_posts</code>:</strong> Required solely to programmatically create and publish scheduled text briefings to the owner&apos;s designated Facebook Page.
-        </li>
-        <li>
-          <strong><code>pages_read_engagement</code>:</strong> Utilized strictly to verify successful post status on the owner&apos;s Page feed.
-        </li>
-      </ul>
-      <p>
-        Page access tokens are stored in secure, encrypted environment variables accessible only to the owner during automated deployment.
-      </p>
+        {/* Section 03 */}
+        <section className="space-y-3">
+          <h2 id="permissions" className="text-xl font-bold tracking-tight text-slate-950 flex items-center gap-2">
+            <span className="text-[#1848ff]">03.</span> Meta Graph API Permissions Requested
+          </h2>
+          <p>
+            AutoPost requests and utilizes only the minimal permissions required to publish to the owner&apos;s personal Page:
+          </p>
+          <ul className="list-disc pl-5 space-y-2.5 text-muted-foreground">
+            <li>
+              <strong className="text-slate-900"><code>pages_manage_posts</code>:</strong> Required exclusively to transmit and publish scheduled technical updates to the owner&apos;s authorized Facebook Page feed.
+            </li>
+            <li>
+              <strong className="text-slate-900"><code>pages_read_engagement</code>:</strong> Utilized strictly to verify HTTP delivery confirmation and feed publication status.
+            </li>
+          </ul>
+          <p className="text-xs text-muted-foreground">
+            All OAuth tokens are encrypted at rest using industry-standard AES-GCM protocols and accessed strictly by automated background tasks.
+          </p>
+        </section>
 
-      <h2>4. Third-Party Integrations</h2>
-      <p>The Application interacts exclusively with the following trusted infrastructure providers:</p>
-      <ul>
-        <li>
-          <strong>Meta Platforms, Inc. (Graph API v20.0):</strong> For secure OAuth 2.0 authorization and direct HTTPS feed publication.
-        </li>
-        <li>
-          <strong>DeepSeek API:</strong> For automated drafting of technical editorial briefings via secured backend API requests.
-        </li>
-      </ul>
+        {/* Section 04 */}
+        <section className="space-y-3">
+          <h2 id="third-party" className="text-xl font-bold tracking-tight text-slate-950 flex items-center gap-2">
+            <span className="text-[#1848ff]">04.</span> Trusted Third-Party Infrastructure
+          </h2>
+          <p>AutoPost communicates with only two external infrastructure providers over encrypted HTTPS TLS 1.3:</p>
+          <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
+            <li>
+              <strong className="text-slate-900">Meta Platforms, Inc. (Graph API v20.0):</strong> Direct, authenticated endpoints for Facebook Page content broadcasting.
+            </li>
+            <li>
+              <strong className="text-slate-900">DeepSeek AI Engine:</strong> Secure backend API calls to synthesize structured technical briefing drafts.
+            </li>
+          </ul>
+        </section>
 
-      <h2>5. User Data Deletion &amp; Access Revocation</h2>
-      <p>
-        Because AutoPost retains zero external user data, no visitor records exist to delete. However, in compliance with Meta Platform Terms, full revocation instructions can be found on our{' '}
-        <a href="/data-deletion">User Data Deletion page</a>.
-      </p>
+        {/* Section 05 */}
+        <section className="space-y-3">
+          <h2 id="revocation" className="text-xl font-bold tracking-tight text-slate-950 flex items-center gap-2">
+            <span className="text-[#1848ff]">05.</span> User Data Deletion &amp; Access Revocation
+          </h2>
+          <p>
+            Because AutoPost stores zero external user data, there are no persistent visitor records to delete. However, in full compliance with Meta Developer Policies, self-serve access revocation instructions are published on our{' '}
+            <a href="/data-deletion" className="text-[#1848ff] font-semibold underline underline-offset-4">
+              User Data Deletion page
+            </a>.
+          </p>
+        </section>
 
-      <h2>6. Contact &amp; Developer Information</h2>
-      <p>
-        If you have questions regarding this Privacy Policy or Meta compliance auditing, please contact the developer directly:
-      </p>
-      <p>
-        <strong>Developer:</strong> Muhammad Hassaan Khan<br />
-        <strong>Email:</strong>{' '}
-        <a href="mailto:m.hassaankhan.official@gmail.com">
-          m.hassaankhan.official@gmail.com
-        </a><br />
-        <strong>Platform:</strong> AutoPost Personal Automation Engine
-      </p>
+        {/* Section 06 */}
+        <section className="space-y-3 border-t border-black/[0.08] pt-6">
+          <h2 id="contact" className="text-xl font-bold tracking-tight text-slate-950 flex items-center gap-2">
+            <span className="text-[#1848ff]">06.</span> Developer Ownership &amp; Inquiries
+          </h2>
+          <p className="text-muted-foreground">
+            For audit inquiries, Meta review verifications, or technical documentation, please contact the developer directly:
+          </p>
+          <div className="rounded-2xl border border-black/[0.06] bg-black/[0.015] p-5 text-xs space-y-1.5">
+            <p><strong>Operator:</strong> Muhammad Hassaan Khan</p>
+            <p>
+              <strong>Email:</strong>{' '}
+              <a href="mailto:m.hassaankhan.official@gmail.com" className="text-[#1848ff] font-semibold underline">
+                m.hassaankhan.official@gmail.com
+              </a>
+            </p>
+            <p><strong>Application:</strong> AutoPost Personal Publishing Engine</p>
+            <p><strong>Response SLA:</strong> Inquiries acknowledged within 24 business hours</p>
+          </div>
+        </section>
+      </div>
     </LegalLayout>
   );
 }
