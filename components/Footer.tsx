@@ -4,26 +4,26 @@ import { Shield, Mail, ArrowUpRight } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="relative mt-24 border-t border-black/[0.08] bg-white/70 backdrop-blur-md overflow-hidden">
+    <footer className="relative mt-24 border-t border-black/[0.08] bg-white/70 backdrop-blur-md overflow-hidden text-sm">
       <div className="mx-auto max-w-6xl px-6 pt-16 pb-12 sm:pt-20">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-4 lg:gap-12">
           {/* Brand Col */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5">
-              <div className="flex size-6 items-center justify-center rounded-lg bg-gradient-to-tr from-violet-600 to-blue-600 text-white font-black text-[10px] tracking-wider shadow-sm">
+              <div className="flex size-6 items-center justify-center rounded-lg bg-[#1848ff] text-white font-black text-[10px] tracking-wider shadow-sm">
                 AP
               </div>
               <span className="text-base font-bold tracking-tight text-foreground">
                 AutoPost Platform
               </span>
             </div>
-            <p className="mt-3.5 max-w-sm text-xs leading-relaxed text-muted-foreground">
+            <p className="mt-3.5 max-w-sm text-xs leading-relaxed text-muted-foreground font-normal">
               Autonomous personal publishing engine connecting DeepSeek AI intelligence to the
               Meta Graph API v20.0 for scheduled, high-fidelity publishing to Muhammad Hassaan Khan&apos;s Facebook Page.
             </p>
 
-            <div className="mt-5 flex items-center gap-2 font-mono text-[11px]">
-              <div className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-black/[0.02] px-3 py-1 text-muted-foreground">
+            <div className="mt-5 flex items-center gap-2 text-xs">
+              <div className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-black/[0.02] px-3 py-1 text-muted-foreground font-medium">
                 <span className="relative flex size-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
@@ -35,14 +35,14 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-[11px] font-semibold uppercase tracking-wider text-foreground font-mono">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-foreground">
               Legal &amp; Compliance
             </h4>
             <ul className="mt-4 space-y-2.5 text-xs">
               <li>
                 <Link
                   href="/privacy"
-                  className="text-muted-foreground transition-colors hover:text-foreground inline-flex items-center gap-1"
+                  className="text-muted-foreground transition-colors hover:text-foreground inline-flex items-center gap-1 font-normal"
                 >
                   <span>Privacy Policy</span>
                   <ArrowUpRight className="size-3 opacity-60" />
@@ -51,7 +51,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/terms"
-                  className="text-muted-foreground transition-colors hover:text-foreground inline-flex items-center gap-1"
+                  className="text-muted-foreground transition-colors hover:text-foreground inline-flex items-center gap-1 font-normal"
                 >
                   <span>Terms of Service</span>
                   <ArrowUpRight className="size-3 opacity-60" />
@@ -60,7 +60,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/data-deletion"
-                  className="text-muted-foreground transition-colors hover:text-foreground inline-flex items-center gap-1"
+                  className="text-muted-foreground transition-colors hover:text-foreground inline-flex items-center gap-1 font-normal"
                 >
                   <span>User Data Deletion</span>
                   <ArrowUpRight className="size-3 opacity-60" />
@@ -71,23 +71,23 @@ export function Footer() {
 
           {/* Direct Ownership & Contact */}
           <div>
-            <h4 className="text-[11px] font-semibold uppercase tracking-wider text-foreground font-mono">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-foreground">
               Developer &amp; Ownership
             </h4>
-            <ul className="mt-4 space-y-2.5 text-xs">
+            <ul className="mt-4 space-y-2.5 text-xs text-muted-foreground">
               <li>
                 <a
                   href="mailto:m.hassaankhan.official@gmail.com"
-                  className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
+                  className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground font-normal"
                 >
                   <Mail className="size-3.5" />
                   <span>m.hassaankhan.official@gmail.com</span>
                 </a>
               </li>
-              <li className="text-[11px] text-muted-foreground/80 font-mono">
+              <li className="text-xs font-normal">
                 Owner: Muhammad Hassaan Khan
               </li>
-              <li className="text-[11px] text-muted-foreground/80 font-mono">
+              <li className="text-xs font-normal">
                 Strict Zero-Tracking Architecture
               </li>
             </ul>
@@ -95,10 +95,10 @@ export function Footer() {
         </div>
 
         {/* Divider & Copyright */}
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-black/[0.06] pt-8 text-xs text-muted-foreground sm:flex-row font-mono">
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-black/[0.06] pt-8 text-xs text-muted-foreground sm:flex-row font-normal">
           <p>© 2026 AutoPost. Muhammad Hassaan Khan. All rights reserved.</p>
-          <div className="flex items-center gap-4 text-xs">
-            <span className="flex items-center gap-1">
+          <div className="flex items-center gap-4">
+            <span className="flex items-center gap-1 text-emerald-700 font-medium">
               <Shield className="size-3 text-emerald-500" />
               <span>TLS 1.3 Transport Encrypted</span>
             </span>

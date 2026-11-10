@@ -30,7 +30,7 @@ export function LegalLayout({
           <span>Back to Overview</span>
         </Link>
 
-        <div className="inline-flex items-center gap-1.5 rounded-full border border-violet-500/20 bg-violet-500/10 px-3 py-1 font-mono text-[11px] font-medium text-violet-700">
+        <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-[#1848ff]">
           <Shield className="size-3" />
           <span>{badge}</span>
         </div>
@@ -41,22 +41,22 @@ export function LegalLayout({
         <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
           {title}
         </h1>
-        <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-muted-foreground font-mono">
+        <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
           <span className="inline-flex items-center gap-1.5">
             <Clock className="size-3.5" />
             Last updated: <strong className="font-semibold text-foreground">{lastUpdated}</strong>
           </span>
           <span className="hidden sm:inline-block">•</span>
-          <span className="inline-flex items-center gap-1.5 text-emerald-600">
+          <span className="inline-flex items-center gap-1.5 text-emerald-600 font-medium">
             <CheckCircle2 className="size-3.5" />
             Meta Platform Terms v20.0 Standard
           </span>
         </div>
 
         {/* Meta Reviewer Quick-Audit Callout */}
-        <div className="mt-6 rounded-2xl border border-blue-500/20 bg-blue-500/[0.04] p-4 text-xs text-muted-foreground">
+        <div className="mt-6 rounded-2xl border border-blue-200 bg-blue-50/50 p-4 text-xs text-muted-foreground">
           <div className="flex items-center gap-2 font-semibold text-foreground">
-            <ShieldAlert className="size-4 text-blue-600" />
+            <ShieldAlert className="size-4 text-[#1848ff]" />
             <span>Notice for Meta App Reviewers &amp; Compliance Auditors</span>
           </div>
           <p className="mt-1.5 leading-relaxed">

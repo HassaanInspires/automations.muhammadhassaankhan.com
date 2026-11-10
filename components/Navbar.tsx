@@ -42,7 +42,7 @@ export function Navbar() {
           </div>
           <div className="flex flex-col">
             <span className="font-bold text-[14px] tracking-tight leading-tight">AutoPost</span>
-            <span className="hidden sm:inline-block font-mono text-[9px] text-muted-foreground uppercase tracking-widest">
+            <span className="hidden sm:inline-block text-[10px] text-muted-foreground uppercase tracking-wider font-medium">
               Personal Engine
             </span>
           </div>
@@ -92,9 +92,9 @@ export function Navbar() {
         {/* Right cluster: Live Beacon (Acid Mint) + CTA (Electric Ultramarine) */}
         <div className="flex items-center gap-2">
           {/* Live Engine Status: Acid Mint */}
-          <div className="hidden lg:inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-2.5 py-1 font-mono text-[10px] text-emerald-800">
+          <div className="hidden lg:inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-2.5 py-1 text-[11px] text-emerald-800 font-medium">
             <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="font-semibold">Meta Graph v20.0</span>
+            <span>Meta Graph v20.0</span>
           </div>
 
           <Link
