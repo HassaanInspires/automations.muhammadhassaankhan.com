@@ -3,23 +3,21 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
-import { ArrowDown, ArrowRight, Cpu, Lock, ShieldCheck } from 'lucide-react';
+import { ArrowDown, ArrowRight, ShieldCheck, Cpu, ArrowUpRight, Compass } from 'lucide-react';
 
 export function ParallaxHero() {
   const containerRef = React.useRef<HTMLDivElement>(null);
 
-  // Smooth mouse tilt coordinates for floating badges
+  // Smooth mouse tilt coordinates for floating elements
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const springConfig = { stiffness: 100, damping: 25 };
+  const springConfig = { stiffness: 120, damping: 24 };
   const smoothMouseX = useSpring(mouseX, springConfig);
   const smoothMouseY = useSpring(mouseY, springConfig);
 
-  const badgeTiltX1 = useTransform(smoothMouseY, [-200, 200], [6, -6]);
-  const badgeTiltY1 = useTransform(smoothMouseX, [-200, 200], [-6, 6]);
-  const badgeTiltX2 = useTransform(smoothMouseY, [-200, 200], [-8, 8]);
-  const badgeTiltY2 = useTransform(smoothMouseX, [-200, 200], [8, -8]);
+  const tiltX = useTransform(smoothMouseY, [-200, 200], [4, -4]);
+  const tiltY = useTransform(smoothMouseX, [-200, 200], [-4, 4]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = containerRef.current?.getBoundingClientRect();
@@ -47,14 +45,13 @@ export function ParallaxHero() {
     restDelta: 0.001,
   });
 
-  const yFloatingBadge1 = useTransform(smoothProgress, [0, 1], [0, -100]);
-  const yFloatingBadge2 = useTransform(smoothProgress, [0, 1], [0, 120]);
-  const opacityFade = useTransform(smoothProgress, [0, 0.8], [1, 0.15]);
-  const scaleHero = useTransform(smoothProgress, [0, 1], [1, 0.96]);
+  const yParallaxText = useTransform(smoothProgress, [0, 1], [0, -60]);
+  const yParallaxSpine = useTransform(smoothProgress, [0, 1], [0, 80]);
+  const opacityFade = useTransform(smoothProgress, [0, 0.85], [1, 0.15]);
 
-  const scrollToCards = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const scrollToSpread = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const element = document.getElementById('architecture');
+    const element = document.getElementById('manifesto');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -65,168 +62,140 @@ export function ParallaxHero() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-36 lg:pt-36"
+      className="relative overflow-hidden pt-12 pb-24 sm:pt-20 sm:pb-32 lg:pt-24 lg:pb-36"
     >
-      {/* Crisp Ambient Radial Wash */}
+      {/* Editorial Watermark Stamp (Magazine Folio Background) */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 flex justify-center overflow-hidden"
+        className="pointer-events-none absolute right-4 sm:right-12 top-10 font-mono text-[100px] sm:text-[180px] lg:text-[240px] font-black text-black/[0.02] select-none leading-none z-0"
       >
-        <div className="h-[420px] w-[760px] rounded-full bg-blue-500/[0.04] blur-[100px]" />
+        2026
       </div>
 
-      {/* Harmonic Accent 1: Acid Mint (Meta Graph API) */}
-      <motion.div
-        style={{
-          y: yFloatingBadge1,
-          x: badgeTiltY1,
-          rotateZ: -2,
-          opacity: opacityFade,
-        }}
-        className="pointer-events-none absolute left-6 sm:left-14 lg:left-24 top-24 hidden md:flex items-center gap-3 rounded-2xl border border-emerald-300/80 bg-white/95 backdrop-blur-xl px-4 py-2.5 shadow-card-stacked z-20"
-      >
-        <span className="relative flex size-2.5">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-          <span className="relative inline-flex size-2.5 rounded-full bg-emerald-500" />
-        </span>
-        <div className="flex flex-col text-left">
-          <div className="flex items-center gap-1.5 font-mono text-[11px] font-bold text-foreground">
-            <span>Meta Graph</span>
-            <span className="rounded bg-emerald-500 px-1.5 py-0.5 text-[9px] text-white font-semibold">v20.0</span>
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-10">
+        {/* Magazine Top Meta Header Ribbon */}
+        <div className="flex flex-wrap items-center justify-between border-b border-black/[0.08] pb-4 mb-12 sm:mb-16 font-mono text-[11px] text-muted-foreground uppercase tracking-widest">
+          <div className="flex items-center gap-3">
+            <span className="flex size-2 rounded-full bg-emerald-500 animate-ping" />
+            <span className="font-bold text-foreground">VOL. 01 / EDITION 2026</span>
+            <span className="hidden sm:inline text-black/20">|</span>
+            <span className="hidden sm:inline text-foreground/80">PRIVATE AUTOMATION REGISTRY</span>
           </div>
-          <span className="text-[10px] text-muted-foreground font-sans">Verified HTTPS Endpoints</span>
-        </div>
-      </motion.div>
-
-      {/* Harmonic Accent 2: Ultramarine (DeepSeek-V3 Engine) */}
-      <motion.div
-        style={{
-          y: yFloatingBadge2,
-          x: badgeTiltY2,
-          rotateZ: 2.5,
-          opacity: opacityFade,
-        }}
-        className="pointer-events-none absolute right-6 sm:right-14 lg:right-24 top-32 hidden md:flex items-center gap-3 rounded-2xl border border-blue-200/80 bg-white/95 backdrop-blur-xl px-4 py-2.5 shadow-card-stacked z-20"
-      >
-        <div className="flex size-7 items-center justify-center rounded-xl bg-[#1848ff] text-white shadow-sm">
-          <Cpu className="size-3.5" />
-        </div>
-        <div className="flex flex-col text-left">
-          <div className="flex items-center gap-1.5 font-mono text-[11px] font-bold text-foreground">
-            <span>DeepSeek-V3</span>
-            <span className="rounded bg-blue-100 px-1.5 py-0.5 text-[9px] text-[#1848ff] font-semibold">0.70</span>
+          <div className="flex items-center gap-4">
+            <span className="text-[#1848ff] font-semibold">DEEPSEEK-V3 • META v20.0</span>
+            <span className="hidden md:inline text-black/20">|</span>
+            <span className="hidden md:inline font-sans text-xs lowercase text-muted-foreground">muhammad hassaan khan</span>
           </div>
-          <span className="text-[10px] text-muted-foreground font-sans">Clamped AI Synthesis</span>
-        </div>
-      </motion.div>
-
-      {/* Main Monumental Stage */}
-      <motion.div
-        style={{ scale: scaleHero }}
-        className="mx-auto max-w-5xl px-4 text-center sm:px-6 relative z-10"
-      >
-        {/* Eyebrow Pill with Ultramarine & Mint Accents */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/80 px-4 py-1.5 text-xs font-medium text-blue-950 backdrop-blur-md shadow-sm"
-        >
-          <span className="size-2 rounded-full bg-emerald-500" />
-          <span className="font-semibold text-blue-900">Autonomous Facebook Pipeline</span>
-          <span className="text-blue-300">•</span>
-          <span className="text-blue-700">Muhammad Hassaan Khan</span>
-        </motion.div>
-
-        {/* Monumental Headline: Crisp Bold Obsidian + Pure Ultramarine Editorial Italic */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-          <motion.span
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-6xl font-black tracking-[-0.04em] text-slate-950 sm:text-8xl md:text-9xl leading-[0.94]"
-          >
-            Autonomous
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif italic font-normal text-[#1848ff] text-6xl sm:text-8xl md:text-9xl leading-[0.94]"
-          >
-            Publishing.
-          </motion.span>
         </div>
 
-        {/* Short, Clean 1-Sentence Subtext */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-6 mx-auto max-w-xl text-base text-muted-foreground sm:text-lg leading-relaxed font-normal"
-        >
-          High-signal technical briefings synthesized via DeepSeek-V3 and dispatched directly to
-          Muhammad Hassaan Khan&apos;s Facebook Page via Meta Graph API v20.0 with zero data retention.
-        </motion.p>
-
-        {/* Distinct Action CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
-        >
-          <a
-            href="#architecture"
-            onClick={scrollToCards}
-            className="group relative inline-flex items-center gap-2.5 rounded-full bg-[#1848ff] px-7 py-3.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-blue-700 hover:shadow-lg active:scale-95"
+        {/* Asymmetrical Hero Stage: Sideways Spine + Monumental Headlines */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* Vertical Magazine Running Spine (Sideways Text) */}
+          <motion.div
+            style={{ y: yParallaxSpine }}
+            className="hidden lg:flex lg:col-span-1 flex-col items-center justify-between border-r border-black/[0.08] pr-4 min-h-[480px] select-none"
           >
-            <span>Explore Architecture</span>
-            <ArrowDown className="size-4 transition-transform duration-300 group-hover:translate-y-0.5" />
-          </a>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[#1848ff] font-bold [writing-mode:vertical-rl] rotate-180">
+              AUTONOMOUS ARCHITECTURE // ARCHIVE REF: 0206
+            </span>
+            <div className="h-16 w-px bg-black/[0.1]" />
+            <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground [writing-mode:vertical-rl] rotate-180">
+              ZERO-RETENTION PROTOCOL
+            </span>
+          </motion.div>
 
-          <Link
-            href="/privacy"
-            className="inline-flex items-center gap-2 rounded-full border border-black/[0.1] bg-white/90 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur-md transition-all hover:border-emerald-300 hover:bg-emerald-50/50 active:scale-95 shadow-sm"
+          {/* Main Monumental Editorial Body */}
+          <motion.div
+            style={{ y: yParallaxText, rotateX: tiltX, rotateY: tiltY }}
+            className="lg:col-span-11 flex flex-col justify-between"
           >
-            <span>Compliance &amp; Privacy</span>
-            <ArrowRight className="size-4 opacity-60 transition-transform group-hover:translate-x-0.5" />
-          </Link>
-        </motion.div>
+            {/* Editorial Category Tag */}
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 font-mono text-[11px] font-semibold text-[#1848ff]">
+                <span>ARCHITECTURAL BRIEFING</span>
+              </span>
+              <span className="font-mono text-xs text-muted-foreground">
+                DISPATCH PROTOCOL // EPHEMERAL
+              </span>
+            </div>
 
-        {/* Clean, High-Contrast 3-Metric Strip (Triad: Amber, Ultramarine, Mint) */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-14 mx-auto max-w-2xl pt-6 border-t border-black/[0.06] grid grid-cols-3 gap-6 text-center"
-        >
-          <div>
-            <span className="font-mono text-2xl font-black text-[#f59e0b] block">
-              0 Bytes
-            </span>
-            <span className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground block">
-              Disk Persistence
-            </span>
-          </div>
-          <div>
-            <span className="font-mono text-2xl font-black text-[#1848ff] block">
-              TLS 1.3
-            </span>
-            <span className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground block">
-              Encrypted Handshake
-            </span>
-          </div>
-          <div>
-            <span className="font-mono text-2xl font-black text-[#059669] block">
-              v20.0
-            </span>
-            <span className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground block">
-              Meta Graph API
-            </span>
-          </div>
-        </motion.div>
-      </motion.div>
+            {/* Monumental Headline: Asymmetric, Magazine-Style Scale */}
+            <div className="mt-8 sm:mt-10">
+              <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[132px] font-black tracking-[-0.05em] text-slate-950 leading-[0.9] sm:leading-[0.88]">
+                AUTONOMOUS
+                <span className="block font-serif italic font-normal text-[#1848ff] text-5xl sm:text-7xl md:text-8xl lg:text-[116px] tracking-tight mt-2 sm:mt-3">
+                  Publishing.
+                </span>
+              </h1>
+            </div>
+
+            {/* Editorial Asymmetric Pull-Quote and Manifest Grid */}
+            <div className="mt-12 sm:mt-16 pt-8 border-t border-black/[0.08] grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+              {/* Left Column: Bold Pull-Quote */}
+              <div className="md:col-span-7">
+                <p className="font-serif italic text-2xl sm:text-3xl text-slate-900 leading-snug">
+                  &ldquo;A private, deterministic pipeline connecting DeepSeek AI intelligence to Meta Graph API v20.0 with strictly zero external data retention.&rdquo;
+                </p>
+                <p className="mt-4 text-xs sm:text-sm text-muted-foreground leading-relaxed font-sans max-w-xl">
+                  Engineered exclusively for Muhammad Hassaan Khan’s personal Facebook Page. Every post is formulated in volatile runtime memory, dispatched over encrypted TLS 1.3, and immediately flushed upon confirmation.
+                </p>
+
+                {/* Magazine Action Bar */}
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <a
+                    href="#manifesto"
+                    onClick={scrollToSpread}
+                    className="group relative inline-flex items-center gap-3 rounded-full bg-slate-950 px-8 py-3.5 text-xs font-bold text-white shadow-md transition-all hover:bg-[#1848ff] hover:shadow-lg active:scale-95 uppercase tracking-wider"
+                  >
+                    <span>Read The Manifesto</span>
+                    <ArrowDown className="size-3.5 transition-transform duration-300 group-hover:translate-y-0.5" />
+                  </a>
+
+                  <Link
+                    href="/privacy"
+                    className="inline-flex items-center gap-2 rounded-full border border-black/[0.12] bg-white px-7 py-3.5 text-xs font-bold text-foreground transition-all hover:border-[#1848ff] hover:text-[#1848ff] active:scale-95 shadow-sm uppercase tracking-wider"
+                  >
+                    <span>Compliance Colophon</span>
+                    <ArrowUpRight className="size-3.5 opacity-60" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right Column: High-Fashion Specification Index Card */}
+              <div className="md:col-span-5 rounded-2xl border border-black/[0.08] bg-white/95 p-6 shadow-card-stacked font-mono text-xs">
+                <div className="flex items-center justify-between border-b border-black/[0.06] pb-3 text-muted-foreground">
+                  <span className="uppercase tracking-widest text-[10px] font-bold text-foreground">
+                    INDEX // REGISTRY
+                  </span>
+                  <span className="text-[10px] text-emerald-600 font-bold flex items-center gap-1">
+                    <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    LIVE PROTOCOL
+                  </span>
+                </div>
+
+                <dl className="mt-4 space-y-3">
+                  <div className="flex items-baseline justify-between border-b border-black/[0.03] pb-2">
+                    <dt className="text-muted-foreground">01. Model Architecture</dt>
+                    <dd className="font-bold text-[#1848ff]">DeepSeek-V3 (0.70)</dd>
+                  </div>
+                  <div className="flex items-baseline justify-between border-b border-black/[0.03] pb-2">
+                    <dt className="text-muted-foreground">02. Data Retention</dt>
+                    <dd className="font-bold text-[#f59e0b]">0 Bytes (Ephemeral)</dd>
+                  </div>
+                  <div className="flex items-baseline justify-between border-b border-black/[0.03] pb-2">
+                    <dt className="text-muted-foreground">03. Transport Scoping</dt>
+                    <dd className="font-bold text-[#059669]">pages_manage_posts</dd>
+                  </div>
+                  <div className="flex items-baseline justify-between pt-1">
+                    <dt className="text-muted-foreground">04. Operator Identity</dt>
+                    <dd className="font-semibold text-foreground">Muhammad Hassaan Khan</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 }
